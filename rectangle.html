@@ -1,0 +1,42 @@
+<html>
+  <head>
+    <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+    <style>
+      p {
+        color: white;
+        background-color: black;
+      }
+    </style>
+  </head>
+  <body>
+    <svg width="1000" height="1100">
+      
+    </svg>
+
+    <script>
+      d3.select("svg").selectAll("rect")
+        .data([400, 600, 200, 500, 400])
+        .enter().append("rect")
+        .attr("height", 100)
+        .attr("width", 0)
+        .attr("fill", "white")
+        .attr("x", 0)
+        .attr("y", function(d, i) {
+          return i * 120;
+        });
+
+
+      d3.selectAll("rect").transition()
+        .duration(750)
+        .delay(function(d, i) {
+          return i + 500;
+        })
+        .attr("width", function(d, i) {
+          return d;
+        })
+        .attr("fill", function() {
+          return "hsl(" + Math.random() * 360 + ",100%,50%)";
+        });
+    </script>
+  </body>
+</html>

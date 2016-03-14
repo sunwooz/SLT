@@ -1,0 +1,40 @@
+<html>
+  <head>
+    <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+    <style>
+      p {
+        color: white;
+        background-color: black;
+      }
+    </style>
+  </head>
+  <body>
+    <svg width="1000" height="1100">
+      
+    </svg>
+
+    <script>
+      d3.select("svg").selectAll("rect")
+        .data([200, 100, 50, 30, 120])
+        .enter().append("circle")
+        .attr("r", 0)
+        .attr("fill", "white")
+        .attr("cx", 500)
+        .attr("cy", function(d, i) {
+          return i * 120;
+        });
+
+      d3.selectAll("circle").transition()
+        .duration(750)
+        .delay(function(d, i) {
+          return i + 500;
+        })
+        .attr("r", function(d, i) {
+          return d;
+        })
+        .attr("fill", function() {
+          return "hsl(" + Math.random() * 360 + ",100%,50%)";
+        });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,13 @@
+{
+  "nodes":[
+    {"name":"Linear Algebra","group":1},
+    {"name":"Calculus","group":2},
+    {"name":"Ruby","group":2},
+    {"name":"Multi-variable Calculus", "group":2}
+  ],
+  "links":[
+    {"source":2,"target":1,"weight":1},
+    {"source":0,"target":2,"weight":3},
+    {"source":1,"target":3,"weight":3}
+  ]
+}
